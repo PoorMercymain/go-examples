@@ -3,7 +3,7 @@ package main
 import (
 	"log"
 
-	"github.com/PoorMercymain/go-examples/internal/postgres/repository"
+	"github.com/PoorMercymain/go-examples/internal/postgres/migrations/repository"
 )
 
 func main() {
