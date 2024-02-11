@@ -35,7 +35,15 @@ func main() {
 	}()
 
 	err = p.UseTransaction(ctx, func(tx pgx.Tx) error {
-		tx.Exec(ctx, "INSERT INTO users VALUES ($1, $2)", "ab", "no")
+		tag, err := tx.Exec(ctx, "INSERT INTO users VALUES ($1, $2)", "ab", "no")
+		if err != nil {
+			return err
+		}
+
+		if tag.RowsAffected() == 0 {
+			return errors.New("no rows were added")
+		}
+
 		return nil
 	})
 
