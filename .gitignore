@@ -19,3 +19,12 @@
 
 # Go workspace file
 go.work
+
+# Env file
+.env
+
+# Postgres data
+go-examples-postgres/
+
+# Log files
+*.log
