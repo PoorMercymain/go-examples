@@ -25,3 +25,6 @@ go.work
 
 # Postgres data
 go-examples-postgres/
+
+# Log files
+*.log

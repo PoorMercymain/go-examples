@@ -13,7 +13,7 @@ type Postgres struct {
 	*pgxpool.Pool
 }
 
-func New(dsn string) (*Postgres, error) {
+func NewPostgres(dsn string) (*Postgres, error) {
 	config, err := pgxpool.ParseConfig(dsn)
 	if err != nil {
 		return nil, err

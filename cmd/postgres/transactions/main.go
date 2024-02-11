@@ -19,7 +19,7 @@ func main() {
 		return
 	}
 
-	p, err := transactions.New("postgres://go-examples:go-examples@localhost:5432/go-examples?sslmode=disable")
+	p, err := transactions.NewPostgres("postgres://go-examples:go-examples@localhost:5432/go-examples?sslmode=disable")
 	if err != nil {
 		log.Println(err)
 		return
@@ -47,6 +47,18 @@ func main() {
 		return nil
 	})
 
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	repo, err := transactions.New("postgres://go-examples:go-examples@localhost:5432/go-examples?sslmode=disable")
+	if err != nil {
+		log.Println(err)
+		return
+	}
+
+	err = repo.Create(ctx, "me", "literally me")
 	if err != nil {
 		log.Println(err)
 		return
