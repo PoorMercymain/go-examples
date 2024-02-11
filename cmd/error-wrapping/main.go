@@ -57,4 +57,8 @@ func main() {
 	if errors.As(errors.New("random err"), &myNew) {
 		log.Println("errors.As succeeded for wrong case:", myNew)
 	}
+
+	if errors.As(fmt.Errorf("random err: %v", my), &myNew) {
+		log.Println("errors.As succeeded for wrong case 2:", myNew)
+	}
 }
